@@ -1,0 +1,23 @@
+In most motor drivers (like L293D or L298N) you’ll find three main signals for each motor:
+
+IN1 & IN2 (or A & B) → These are the control pins that decide the direction (CW/CCW/STOP).
+
+EN (Enable pin) → This controls whether the motor is active or disabled.
+
+If EN = HIGH → motor is enabled (will run according to IN1 & IN2).
+
+If EN = LOW → motor is disabled (stops regardless of IN1 & IN2).
+
+🔌 Connection of Enable Pin
+
+Yes, the Enable pin can be connected to a digital pin on the Arduino.
+
+Often, people connect it to a PWM-enabled pin (like D3, D5, D6, D9, D10, D11 on Arduino UNO).
+
+That way, you can control the speed of the motor using analogWrite().
+
+If you don’t want speed control, you can tie EN pin directly to 5V so the motor is always enabled.
+
+
+
+👉 If you want to change the speed, just adjust the analogWrite(enablePin, value); where value = 0–255.
